@@ -1,0 +1,101 @@
+---
+const navLinks = [
+  { href: '#products', label: 'สินค้า' },
+  { href: '#packages', label: 'ชุดเบรคประชุม' },
+  { href: '#testimonials', label: 'รีวิว' },
+  { href: '#how-to-order', label: 'วิธีสั่งซื้อ' },
+  { href: '#contact', label: 'ติดต่อเรา' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-primary/10">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+            <circle cx="9" cy="10" r="1" fill="currentColor" />
+            <circle cx="15" cy="10" r="1" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="hidden sm:block">
+          <span class="font-semibold text-primary text-lg">ขนมครูกุ้ง</span>
+          <span class="block text-xs text-gray-500 -mt-1">Kanom Kru Kung</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="px-4 py-2 text-sm font-medium text-text/80 hover:text-primary rounded-lg transition-colors hover:bg-primary/5"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          class="ml-2 px-5 py-2.5 bg-secondary text-white text-sm font-medium rounded-xl transition-all hover:bg-secondary/90 hover:shadow-md"
+        >
+          สั่งเลย
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-lg hover:bg-primary/5 transition-colors"
+        aria-label="เปิดเมนู"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col gap-1 pt-2 border-t border-primary/10">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-nav-link px-4 py-3 text-sm font-medium text-text/80 hover:text-primary rounded-lg transition-colors hover:bg-primary/5"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          class="mobile-nav-link mt-2 mx-4 px-5 py-3 bg-secondary text-white text-sm font-medium rounded-xl text-center transition-all hover:bg-secondary/90"
+        >
+          สั่งเลย
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  menuBtn?.addEventListener('click', () => {
+    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking a link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

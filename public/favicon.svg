@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F7C948"/>
+      <stop offset="100%" style="stop-color:#FF7AA2"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg)"/>
+  <!-- Inner circle (face) -->
+  <circle cx="50" cy="50" r="38" fill="#FFF7E8"/>
+  <!-- Eyes -->
+  <circle cx="38" cy="45" r="5" fill="#8B5E3C"/>
+  <circle cx="62" cy="45" r="5" fill="#8B5E3C"/>
+  <!-- Eye highlights -->
+  <circle cx="40" cy="43" r="2" fill="#FFF7E8"/>
+  <circle cx="64" cy="43" r="2" fill="#FFF7E8"/>
+  <!-- Blush -->
+  <ellipse cx="30" cy="55" rx="6" ry="4" fill="#FF7AA2" opacity="0.4"/>
+  <ellipse cx="70" cy="55" rx="6" ry="4" fill="#FF7AA2" opacity="0.4"/>
+  <!-- Smile -->
+  <path d="M 35 60 Q 50 75 65 60" stroke="#8B5E3C" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Small decorative dots -->
+  <circle cx="50" cy="25" r="3" fill="#2FBF9B"/>
+</svg>

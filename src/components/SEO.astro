@@ -1,0 +1,56 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
+}
+
+const {
+  title = 'ขนมครูกุ้ง | Kanom Kru Kung - ขนมไทยทำสด ชุดเบรคประชุม',
+  description = 'ขนมไทยทำสดใหม่ น่ารักพอดีคำ เหมาะสำหรับเบรคประชุม สัมมนา และงานอีเวนต์ บริการจัดส่งในกรุงเทพฯ และปริมณฑล',
+  image = '/og-image.png',
+  url = 'https://kanomkrukung.com',
+  type = 'website',
+} = Astro.props;
+
+const siteName = 'ขนมครูกุ้ง - Kanom Kru Kung';
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content="ขนมไทย, ขนมครูกุ้ง, เบรคประชุม, ของว่างประชุม, ขนมงานสัมมนา, catering, meeting snacks, Thai desserts" />
+<meta name="author" content="Kanom Kru Kung" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="Thai" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="th_TH" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={url} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<!-- Preconnect to Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />

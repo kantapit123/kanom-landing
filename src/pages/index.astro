@@ -1,0 +1,95 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Navbar from '@components/Navbar.astro';
+import Hero from '@components/Hero.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import ProductCard from '@components/ProductCard.astro';
+import PackageCard from '@components/PackageCard.astro';
+import WhyUs from '@components/WhyUs.astro';
+import Testimonials from '@components/Testimonials.astro';
+import FAQ from '@components/FAQ.astro';
+import Contact from '@components/Contact.astro';
+import Footer from '@components/Footer.astro';
+
+import { bestSellers } from '@data/products';
+import { packages } from '@data/packages';
+---
+
+<BaseLayout>
+  <Navbar />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero />
+
+    <!-- Best Sellers Section -->
+    <section id="products" class="section-padding">
+      <div class="container-narrow">
+        <SectionTitle
+          title="ขนมขายดี"
+          subtitle="ขนมยอดนิยมที่ลูกค้าชื่นชอบ ทำสดใหม่ทุกวัน"
+        />
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {bestSellers.map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+
+        <!-- View all CTA -->
+        <div class="text-center mt-10">
+          <a href="#contact" class="btn-outline">
+            ดูขนมทั้งหมด →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meeting Break Packages Section -->
+    <section id="packages" class="section-padding bg-white">
+      <div class="container-narrow">
+        <SectionTitle
+          title="ชุดเบรคประชุม"
+          subtitle="เลือกชุดที่เหมาะกับงานของคุณ ครบครัน พร้อมเสิร์ฟ"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {packages.map((pkg) => (
+            <PackageCard pkg={pkg} />
+          ))}
+        </div>
+
+        <!-- Note -->
+        <div class="mt-10 p-6 bg-accent/10 rounded-2xl border border-accent/20">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-primary mb-1">ต้องการจำนวนมากหรือเมนูพิเศษ?</h4>
+              <p class="text-sm text-gray-600">
+                สำหรับงานใหญ่หรือต้องการเมนูเฉพาะ ติดต่อเราโดยตรงเพื่อรับราคาพิเศษ ทีมงานพร้อมช่วยออกแบบเมนูให้ตรงใจ
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <WhyUs />
+
+    <!-- Testimonials Section -->
+    <Testimonials />
+
+    <!-- FAQ Section -->
+    <FAQ />
+
+    <!-- Contact & How to Order Section -->
+    <Contact />
+  </main>
+
+  <Footer />
+</BaseLayout>
